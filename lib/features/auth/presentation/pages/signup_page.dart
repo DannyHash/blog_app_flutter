@@ -1,3 +1,4 @@
+import 'package:blog_app_flutter/features/auth/presentation/widgets/auth_field.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatefulWidget {
@@ -21,6 +22,8 @@ class _SignupPageState extends State<SignupPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
+          SizedBox(height: 30),
+          AuthField(hintText: 'Email'),
         ],
       ),
     );
