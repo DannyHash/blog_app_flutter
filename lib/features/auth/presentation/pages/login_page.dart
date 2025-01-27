@@ -3,24 +3,22 @@ import 'package:blog_app_flutter/features/auth/presentation/widgets/auth_field.d
 import 'package:blog_app_flutter/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatefulWidget {
-  const SignupPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _LoginPageState extends State<LoginPage> {
   final emialController = TextEditingController();
   final passwordController = TextEditingController();
-  final nameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
     emialController.dispose();
     passwordController.dispose();
-    nameController.dispose();
     super.dispose();
   }
 
@@ -35,18 +33,13 @@ class _SignupPageState extends State<SignupPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Sign Up.',
+                'Sign In.',
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(height: 30),
-              AuthField(
-                hintText: 'Name',
-                controller: nameController,
-              ),
-              SizedBox(height: 15),
               AuthField(
                 hintText: 'Email',
                 controller: emialController,
@@ -59,16 +52,16 @@ class _SignupPageState extends State<SignupPage> {
               ),
               SizedBox(height: 20),
               AuthGradientButton(
-                buttonText: 'Sign Up',
+                buttonText: 'Sign In',
               ),
               SizedBox(height: 20),
               RichText(
                 text: TextSpan(
-                    text: 'Already have an account? ',
+                    text: 'Don\'t have an account? ',
                     style: Theme.of(context).textTheme.titleMedium,
                     children: [
                       TextSpan(
-                        text: 'Sign In',
+                        text: 'Sign Up',
                         style:
                             Theme.of(context).textTheme.titleMedium?.copyWith(
                                   color: AppPallete.gradient2,
