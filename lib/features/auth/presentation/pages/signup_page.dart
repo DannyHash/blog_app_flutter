@@ -17,14 +17,14 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  final emialController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final nameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    emialController.dispose();
+    emailController.dispose();
     passwordController.dispose();
     nameController.dispose();
     super.dispose();
@@ -37,8 +37,8 @@ class _SignupPageState extends State<SignupPage> {
       body: Padding(
         padding: EdgeInsets.all(15.0),
         child: Form(
+          key: formKey,
           child: Column(
-            key: formKey,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
@@ -56,7 +56,7 @@ class _SignupPageState extends State<SignupPage> {
               SizedBox(height: 15),
               AuthField(
                 hintText: 'Email',
-                controller: emialController,
+                controller: emailController,
               ),
               SizedBox(height: 15),
               AuthField(
@@ -71,7 +71,7 @@ class _SignupPageState extends State<SignupPage> {
                   if (formKey.currentState!.validate()) {
                     context.read<AuthBloc>().add(
                           AuthSignUp(
-                            email: emialController.text.trim(),
+                            email: emailController.text.trim(),
                             password: passwordController.text.trim(),
                             name: nameController.text.trim(),
                           ),
